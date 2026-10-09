@@ -110,10 +110,11 @@ class OpenAILLMClient(BaseLLMClient):
 
 class GeminiLLMClient(BaseLLMClient):
     """Google Gemini API client implementation."""
-    def __init__(self, api_key: str, model_name: str = "gemini-1.5-flash"):
+    def __init__(self, api_key: str, model_name: Optional[str] = None):
         import google.generativeai as genai
+        selected_model = model_name or getattr(settings, "LLM_MODEL", "gemini-3.8-flash")
         genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel(model_name)
+        self.model = genai.GenerativeModel(selected_model)
 
     def generate_json(self, system_prompt: str, user_prompt: str, schema: Optional[Any] = None) -> Dict[str, Any]:
         prompt = f"{system_prompt}\n\nUSER PROMPT:\n{user_prompt}\n\nRespond with strictly valid JSON only."
