@@ -22,7 +22,7 @@ class Settings(BaseSettings):
 
     # LLM Settings
     LLM_PROVIDER: str = "mock"  # "mock", "gemini", "openai", "groq", "ollama"
-    LLM_MODEL: str = "gemini-1.5-flash"
+    LLM_MODEL: str = "gemini-3.8-flash"
     OPENAI_API_KEY: str = ""
     GEMINI_API_KEY: str = ""
     GROQ_API_KEY: str = ""

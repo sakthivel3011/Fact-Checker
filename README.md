@@ -289,7 +289,5 @@ tests/test_tools.py::test_tavily_search PASSED
 ## 👤 Author Information
 
 - **Student:** SAKTHIVEL S
-- **Roll Number:** 23ADR145
-- **Course:** One Credit Course on Agentic AI
 - **Repository:** https://github.com/sakthivel3011/Fact-Checker
 - **Submission Date:** October 2026

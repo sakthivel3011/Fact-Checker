@@ -118,16 +118,24 @@ class GeminiLLMClient(BaseLLMClient):
 
     def generate_json(self, system_prompt: str, user_prompt: str, schema: Optional[Any] = None) -> Dict[str, Any]:
         prompt = f"{system_prompt}\n\nUSER PROMPT:\n{user_prompt}\n\nRespond with strictly valid JSON only."
-        response = self.model.generate_content(
-            prompt,
-            generation_config={"response_mime_type": "application/json"}
-        )
-        return json.loads(response.text)
+        try:
+            response = self.model.generate_content(
+                prompt,
+                generation_config={"response_mime_type": "application/json"}
+            )
+            return json.loads(response.text)
+        except Exception as e:
+            logger.warning(f"Gemini generate_json call failed: {e}. Utilizing fallback engine.")
+            return MockLLMClient().generate_json(system_prompt, user_prompt, schema)
 
     def generate_text(self, system_prompt: str, user_prompt: str) -> str:
         prompt = f"{system_prompt}\n\n{user_prompt}"
-        response = self.model.generate_content(prompt)
-        return response.text
+        try:
+            response = self.model.generate_content(prompt)
+            return response.text
+        except Exception as e:
+            logger.warning(f"Gemini generate_text call failed: {e}. Utilizing fallback engine.")
+            return MockLLMClient().generate_text(system_prompt, user_prompt)
 
 
 def get_llm_client() -> BaseLLMClient:

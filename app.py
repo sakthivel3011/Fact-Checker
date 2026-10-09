@@ -84,7 +84,7 @@ async def home_page(request: Request):
 # -------------------------------------------------------------------------
 
 @app.post("/api/fact-check", response_model=FactCheckVerdict)
-async def api_fact_check(req: FactCheckRequest):
+def api_fact_check(req: FactCheckRequest):
     """
     Executes the full LangGraph Fact-Checking multi-agent workflow:
     Input Guardrail -> Clickbait Analyzer -> RAG Retrieval -> ReAct Web Search -> Evidence Evaluator -> Verdict Synthesizer.
@@ -100,7 +100,7 @@ async def api_fact_check(req: FactCheckRequest):
 
 
 @app.get("/api/digest", response_model=NewsDigestResult)
-async def api_get_digest(
+def api_get_digest(
     category: str = Query("World", enum=["World", "Technology", "India", "Science", "Business", "Sports"]),
     limit: int = Query(5, ge=1, le=15)
 ):
