@@ -1,0 +1,150 @@
+[
+  {
+    "id": "KB-001",
+    "claim": "5G cell towers cause coronavirus and viral respiratory infections",
+    "verdict": "FALSE",
+    "credibility_score": 5.0,
+    "category": "Health",
+    "explanation": "Viruses cannot travel through radio waves or mobile networks. COVID-19 is spread through respiratory droplets when an infected person coughs, sneezes or speaks. Countries without 5G networks still experienced viral outbreaks.",
+    "sources": [
+      {
+        "title": "WHO Mythbusters: 5G mobile networks do not spread COVID-19",
+        "url": "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters",
+        "domain": "who.int",
+        "credibility_rating": 97
+      },
+      {
+        "title": "Reuters Fact Check: 5G technology has no correlation to viral infection",
+        "url": "https://www.reuters.com/fact-check/5g-virus-myth",
+        "domain": "reuters.com",
+        "credibility_rating": 96
+      }
+    ]
+  },
+  {
+    "id": "KB-002",
+    "claim": "The James Webb Space Telescope detected atmospheric signatures and potential biosignatures on exoplanet K2-18b",
+    "verdict": "TRUE",
+    "credibility_score": 92.0,
+    "category": "Science",
+    "explanation": "NASA and international astronomers announced that spectroscopic data from the James Webb Space Telescope revealed carbon-bearing molecules, including methane and carbon dioxide, in the atmosphere of habitable-zone exoplanet K2-18b.",
+    "sources": [
+      {
+        "title": "NASA's Webb Discovers Carbon-Bearing Molecules in Atmosphere of K2-18 b",
+        "url": "https://www.nasa.gov/universe/exoplanets/webb-discovers-methane-carbon-dioxide-in-atmosphere-of-k2-18-b",
+        "domain": "nasa.gov",
+        "credibility_rating": 97
+      },
+      {
+        "title": "Nature Astronomy: Carbon-bearing molecules in a temperate sub-Neptune",
+        "url": "https://www.nature.com/articles/s41550-023-02104-5",
+        "domain": "nature.com",
+        "credibility_rating": 98
+      }
+    ]
+  },
+  {
+    "id": "KB-003",
+    "claim": "Drinking lemon water with baking soda cures all forms of cancer in 48 hours",
+    "verdict": "FALSE",
+    "credibility_score": 3.0,
+    "category": "Health",
+    "explanation": "There is zero clinical scientific evidence that alkaline water, baking soda, or citrus fruits cure cancer. Cancer involves uncontrolled cell division caused by genetic mutations and requires oncology therapies like surgery, chemotherapy, or immunotherapy.",
+    "sources": [
+      {
+        "title": "American Cancer Society: Debunking Alkaline Diet and Baking Soda Myths",
+        "url": "https://www.cancer.org/healthy/eat-healthy-get-active/diet-myths",
+        "domain": "cancer.org",
+        "credibility_rating": 96
+      },
+      {
+        "title": "Snopes Fact Check: Does Lemon and Baking Soda Cure Cancer?",
+        "url": "https://www.snopes.com/fact-check/lemon-baking-soda-cancer/",
+        "domain": "snopes.com",
+        "credibility_rating": 95
+      }
+    ]
+  },
+  {
+    "id": "KB-004",
+    "claim": "ISRO successfully launched the Chandrayaan-3 mission and landed on the lunar South Pole",
+    "verdict": "TRUE",
+    "credibility_score": 98.0,
+    "category": "Science",
+    "explanation": "On August 23, 2023, the Indian Space Research Organisation (ISRO) achieved a historic soft landing of the Vikram lander on the Moon's South Pole, deploying the Pragyan rover for scientific experiments.",
+    "sources": [
+      {
+        "title": "ISRO Official: Chandrayaan-3 Mission Landing Success",
+        "url": "https://www.isro.gov.in/Chandrayaan3_Details.html",
+        "domain": "isro.gov.in",
+        "credibility_rating": 98
+      },
+      {
+        "title": "BBC News: India makes historic moon landing near south pole",
+        "url": "https://www.bbc.com/news/world-asia-india-66594520",
+        "domain": "bbc.com",
+        "credibility_rating": 92
+      }
+    ]
+  },
+  {
+    "id": "KB-005",
+    "claim": "Artificial Intelligence models have gained conscious subjective experience and sentience",
+    "verdict": "UNVERIFIED",
+    "credibility_score": 45.0,
+    "category": "Technology",
+    "explanation": "Current large language models use statistical token prediction trained on human corpora. While they display impressive conversational coherence, neuroscientists and AI ethicists broadly agree they lack biological sentience, self-awareness, or subjective consciousness.",
+    "sources": [
+      {
+        "title": "Association for Computational Linguistics: Consciousness in Artificial Intelligence",
+        "url": "https://aclanthology.org/2023.findings-acl.120",
+        "domain": "aclweb.org",
+        "credibility_rating": 94
+      },
+      {
+        "title": "MIT Technology Review: AI is not sentient, why experts agree",
+        "url": "https://www.technologyreview.com/2023/ai-sentience-debate",
+        "domain": "technologyreview.com",
+        "credibility_rating": 91
+      }
+    ]
+  },
+  {
+    "id": "KB-006",
+    "claim": "Eating carrots gives humans night-vision superpowers",
+    "verdict": "MISLEADING",
+    "credibility_score": 38.0,
+    "category": "Health",
+    "explanation": "Carrots contain beta-carotene which the body converts to vitamin A, essential for normal vision. However, eating excess carrots will not give humans supernatural night vision. This myth was popularized as British WWII propaganda to disguise radar technology.",
+    "sources": [
+      {
+        "title": "Smithsonian Magazine: A WWII Propaganda Campaign Popularized the Carrot Myth",
+        "url": "https://www.smithsonianmag.com/arts-culture/a-wwii-propaganda-campaign-popularized-the-carrot-myth-180975618/",
+        "domain": "smithsonianmag.com",
+        "credibility_rating": 93
+      }
+    ]
+  },
+  {
+    "id": "KB-007",
+    "claim": "RBI withdraws all 500 rupee currency notes from circulation",
+    "verdict": "FALSE",
+    "credibility_score": 8.0,
+    "category": "India",
+    "explanation": "The Reserve Bank of India has not withdrawn 500 rupee notes from circulation. Social media posts claiming demonetization of 500 rupee notes are recurring hoaxes repeatedly debunked by the RBI and PIB Fact Check.",
+    "sources": [
+      {
+        "title": "PIB Fact Check: Viral claim on Rs 500 currency note ban is fake",
+        "url": "https://factcheck.pib.gov.in/details/500-rupee-ban-fake",
+        "domain": "pib.gov.in",
+        "credibility_rating": 95
+      },
+      {
+        "title": "The Hindu: RBI clarifies Rs 500 notes continue as legal tender",
+        "url": "https://www.thehindu.com/business/rbi-500-note-clarification",
+        "domain": "thehindu.com",
+        "credibility_rating": 90
+      }
+    ]
+  }
+]

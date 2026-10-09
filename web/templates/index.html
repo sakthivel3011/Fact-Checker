@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fact-Checker & Daily News Digest | Agentic AI Platform</title>
+  <meta name="description" content="Agentic AI Fact-Checking and Daily News Digest platform powered by LangGraph, MCP, RAG, and ReAct.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="brand">
+      <span class="brand-icon">🛡️</span>
+      <div>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <h1 class="brand-title">Fact-Checker & Daily News Digest</h1>
+          <span class="brand-badge">Agentic AI v2.0</span>
+        </div>
+        <span style="font-size: 0.75rem; color: #9ca3af;">LangGraph • Model Context Protocol • RAG • ReAct Loop</span>
+      </div>
+    </div>
+
+    <nav class="nav-tabs" role="tablist">
+      <button class="nav-tab active" data-tab="tab-factcheck" role="tab" id="nav-fc">🛡️ Fact-Checker</button>
+      <button class="nav-tab" data-tab="tab-digest" role="tab" id="nav-digest">📰 News Digest</button>
+      <button class="nav-tab" data-tab="tab-architecture" role="tab" id="nav-arch">🧠 Architecture</button>
+      <button class="nav-tab" data-tab="tab-mcp" role="tab" id="nav-mcp">🔌 MCP Protocol</button>
+      <button class="nav-tab" data-tab="tab-history" role="tab" id="nav-hist">🕘 History</button>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- =================================================================== -->
+    <!-- TAB 1: FACT-CHECKER LAB -->
+    <!-- =================================================================== -->
+    <section id="tab-factcheck" class="tab-panel active">
+      <div class="card">
+        <h2 class="card-title">🔍 Multi-Agent Fact Verification Console</h2>
+        <p class="card-subtitle">
+          Submit any breaking claim or headline. The LangGraph agentic pipeline executes input guardrails, 
+          RAG knowledge retrieval, live Tavily web search, source credibility scoring, and ReAct multi-step synthesis.
+        </p>
+
+        <!-- Benchmark Chips -->
+        <div class="chips-container">
+          <span class="chip-label">Try Benchmarks:</span>
+          <button class="chip" data-claim="5G cell towers cause coronavirus and viral respiratory infections">5G Viral Hoax (False)</button>
+          <button class="chip" data-claim="The James Webb Space Telescope detected atmospheric signatures and potential biosignatures on exoplanet K2-18b">JWST Exoplanet (True)</button>
+          <button class="chip" data-claim="Drinking lemon water with baking soda cures all forms of cancer in 48 hours">Baking Soda Cancer Cure (False)</button>
+          <button class="chip" data-claim="ISRO successfully launched Chandrayaan-3 and landed on the lunar South Pole">ISRO Chandrayaan-3 (True)</button>
+          <button class="chip" data-claim="RBI withdraws all 500 rupee currency notes from circulation">RBI 500 Note Ban (False)</button>
+          <button class="chip" data-claim="Eating carrots gives humans night-vision superpowers">Carrots Night Vision (Misleading)</button>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-group">
+          <textarea 
+            id="claim-input" 
+            class="claim-textarea" 
+            placeholder="Type or paste a news claim, viral headline, or statement to investigate..."
+          >5G cell towers cause coronavirus and viral respiratory infections</textarea>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <button id="btn-fact-check" class="btn-primary">
+            <span>⚡</span> Verify Claim with Agents
+          </button>
+          <div style="font-size: 0.8rem; color: #9ca3af;">
+            Engine: <strong>LangGraph StateGraph</strong> | Active LLM: <code>{{ llm_provider }}</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Container -->
+      <div id="factcheck-result"></div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TAB 2: DAILY NEWS DIGEST -->
+    <!-- =================================================================== -->
+    <section id="tab-digest" class="tab-panel">
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <h2 class="card-title">📰 Automated Daily News Digest</h2>
+            <p class="card-subtitle" style="margin-bottom: 0;">
+              Multi-source intelligence aggregator. Collects RSS feeds, filters sensationalism, weights source reliability, and extracts key takeaways.
+            </p>
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <button id="btn-export-md" class="btn-secondary">⬇️ Export Markdown</button>
+            <button id="btn-export-json" class="btn-secondary">⬇️ Export JSON</button>
+          </div>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="category-pills">
+          <button class="cat-pill active" data-category="World">🌍 World</button>
+          <button class="cat-pill" data-category="Technology">💻 Technology</button>
+          <button class="cat-pill" data-category="India">🇮🇳 India</button>
+          <button class="cat-pill" data-category="Science">🔬 Science</button>
+          <button class="cat-pill" data-category="Business">📈 Business</button>
+          <button class="cat-pill" data-category="Sports">⚽ Sports</button>
+        </div>
+
+        <!-- Executive Summary Banner -->
+        <div id="digest-exec-summary"></div>
+
+        <!-- Live Digest Feed -->
+        <div id="digest-feed"></div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TAB 3: ARCHITECTURE VISUALIZER -->
+    <!-- =================================================================== -->
+    <section id="tab-architecture" class="tab-panel">
+      <div class="card">
+        <h2 class="card-title">🧠 Agentic Architecture & LangGraph StateGraph</h2>
+        <p class="card-subtitle">
+          End-to-end multi-agent orchestration diagram demonstrating state management, conditional edges, and tool integration.
+        </p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
+          <!-- Fact Checker Graph -->
+          <div style="background: rgba(0, 0, 0, 0.3); padding: 1.25rem; border-radius: 12px; border: 1px solid var(--border-color);">
+            <h3 style="color: #06b6d4; font-size: 1.05rem; margin-bottom: 0.5rem;">1. Fact-Checking Pipeline</h3>
+            <pre class="json-viewer" style="color: #67e8f9; line-height: 1.4;">
+[START]
+   │
+   ▼
+[Input Guardrail Node] (Adversarial & Length check)
+   │
+   ├──▶ [Unsafe] ──▶ [Verdict Synthesizer] (Abort early)
+   │
+   ▼ [Safe]
+[Clickbait Analyzer Node] (Punctuation & Sensationalism)
+   │
+   ▼
+[RAG Retrieval Node] (Knowledge base vector lookup)
+   │
+   ▼
+[ReAct Search Node] (Tavily live web search loop)
+   │
+   ▼
+[Evidence Evaluator Node] (Domain credibility rating)
+   │
+   ▼
+[Verdict Synthesizer Node] (Structured LLM verdict)
+   │
+   ▼
+[END]
+            </pre>
+          </div>
+
+          <!-- News Digest Graph -->
+          <div style="background: rgba(0, 0, 0, 0.3); padding: 1.25rem; border-radius: 12px; border: 1px solid var(--border-color);">
+            <h3 style="color: #a855f7; font-size: 1.05rem; margin-bottom: 0.5rem;">2. Daily News Digest Pipeline</h3>
+            <pre class="json-viewer" style="color: #c084fc; line-height: 1.4;">
+[START]
+   │
+   ▼
+[Fetch RSS Articles Node] (BBC, The Hindu, TechCrunch)
+   │
+   ▼
+[Filter & Rank Node] (Credibility tier sorting & deduplication)
+   │
+   ▼
+[Summarize & Extract Node] (2-3 sentence summaries & takeaways)
+   │
+   ▼
+[Compile Digest Node] (Markdown briefing & executive summary)
+   │
+   ▼
+[END]
+            </pre>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; background: rgba(99, 102, 241, 0.06); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(99, 102, 241, 0.2);">
+          <h4 style="color: #818cf8; margin-bottom: 0.5rem;">Course Rubric Mapping</h4>
+          <ul style="color: #d1d5db; font-size: 0.88rem; padding-left: 1.25rem; line-height: 1.8;">
+            <li><strong>C1 Functional:</strong> Live Fact Verification + Category-wise News Digest + Interactive UI + Export (Markdown/JSON).</li>
+            <li><strong>C2 Architecture:</strong> LangGraph StateGraph with conditional edges and TypedDict state tracking.</li>
+            <li><strong>C3 MCP:</strong> Model Context Protocol server (mcp_server.py) with 5 exposed tools and 3 resources.</li>
+            <li><strong>C4 Tools:</strong> Tavily search, domain credibility evaluator, clickbait detector, RSS scraper.</li>
+            <li><strong>C5 RAG:</strong> Vector store similarity search over verified ground truth benchmark claims.</li>
+            <li><strong>C6 Prompts:</strong> System prompts, few-shot reasoning exemplars, and Pydantic structured outputs.</li>
+            <li><strong>C7 ReAct + Tavily:</strong> Multi-step Thought-Action-Observation loop with live Tavily web search.</li>
+            <li><strong>C8 Env & Config:</strong> Clean requirements.txt, .env.example, .gitignore, and config.py.</li>
+            <li><strong>C9 Code Quality:</strong> Modular, type-annotated, PEP-8 compliant code.</li>
+            <li><strong>C10 Safety:</strong> Prompt injection defense, citation grounding check, and credibility floor.</li>
+            <li><strong>C11 Testing:</strong> Pytest unit and integration test suite with high test coverage.</li>
+            <li><strong>C12 Documentation:</strong> Detailed README with Mermaid diagrams, setup steps, and sample runs.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TAB 4: MCP PROTOCOL INSPECTOR -->
+    <!-- =================================================================== -->
+    <section id="tab-mcp" class="tab-panel">
+      <div class="card">
+        <h2 class="card-title">🔌 Model Context Protocol (MCP) Inspector</h2>
+        <p class="card-subtitle">
+          Test and interact directly with the MCP Server tools using standardized Model Context Protocol JSON-RPC payloads.
+        </p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+          <div>
+            <label style="display: block; font-size: 0.85rem; color: #9ca3af; margin-bottom: 0.4rem;">Select MCP Tool:</label>
+            <select id="mcp-tool-select" style="width: 100%; padding: 0.6rem; background: #000; color: #fff; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
+              <option value="fact_check_claim">fact_check_claim(claim)</option>
+              <option value="get_daily_digest">get_daily_digest(category, limit)</option>
+              <option value="verify_source_credibility">verify_source_credibility(domain_or_url)</option>
+              <option value="analyze_headline_clickbait">analyze_headline_clickbait(headline)</option>
+              <option value="search_rag_knowledge_base">search_rag_knowledge_base(query, top_k)</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="display: block; font-size: 0.85rem; color: #9ca3af; margin-bottom: 0.4rem;">Tool Parameter Value:</label>
+            <input id="mcp-tool-param" type="text" value="5G cell towers cause viral infection" style="width: 100%; padding: 0.6rem; background: #000; color: #fff; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;" placeholder="Enter parameter string...">
+          </div>
+        </div>
+
+        <button id="btn-mcp-run" class="btn-primary" style="margin-bottom: 1.5rem;">
+          Execute MCP Tool Call
+        </button>
+
+        <h4 style="color: #9ca3af; font-size: 0.85rem; margin-bottom: 0.4rem;">MCP JSON-RPC Output Response:</h4>
+        <pre id="mcp-output-viewer" class="json-viewer">// MCP execution result will appear here after clicking 'Execute MCP Tool Call'</pre>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TAB 5: HISTORY -->
+    <!-- =================================================================== -->
+    <section id="tab-history" class="tab-panel">
+      <div class="card">
+        <h2 class="card-title">🕘 Verification History & Audit Trail</h2>
+        <p class="card-subtitle">
+          Chronological record of claims evaluated and digests generated in this session.
+        </p>
+        <div id="history-feed"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="text-align: center; padding: 2rem; color: #6b7280; font-size: 0.8rem; border-top: 1px solid var(--border-color);">
+    Fact-Checker & Daily News Digest • Built for Agentic AI Coursework • Sakthivel S (23ADR145)
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+# Fact-Checker & Daily News Digest
+# Core Agentic AI Dependencies
+
+# Web & API Framework
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+jinja2>=3.1.3
+python-multipart>=0.0.9
+
+# Agentic Framework & Graph Execution
+langgraph>=0.0.26
+langchain>=0.1.14
+langchain-core>=0.1.33
+langchain-community>=0.0.29
+
+# LLM Providers (OpenAI, Google Gemini, Groq)
+langchain-openai>=0.1.1
+google-generativeai>=0.4.1
+
+# Web Search & Tooling
+tavily-python>=0.3.3
+feedparser>=6.0.11
+beautifulsoup4>=4.12.3
+requests>=2.31.0
+httpx>=0.27.0
+
+# Vector Storage & RAG
+# (Using lightweight vectorized cosine similarity & ChromaDB-compatible interface)
+numpy>=1.26.0
+
+# Data Models & Environment
+pydantic>=2.6.0
+pydantic-settings>=2.2.0
+python-dotenv>=1.0.1
+
+# Testing & Quality Assurance
+pytest>=8.0.0
+pytest-asyncio>=0.23.5
